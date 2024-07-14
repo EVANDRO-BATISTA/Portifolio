@@ -49,9 +49,41 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 // typed js
 const typed = new Typed('.multiple-text', {
-strings: ['Desenvolvedor', 'Adm e gestor de Redes', 'Adm e gestor de computadores','Adm e gestor de S.O.'],
+strings: ['{ Developmente }', '{ Phython }', '{ PHP }'],
 typeSpeed: 100,
 backSpeed: 100,
 backDelay: 1000,
 loop: true
 });
+
+// Get the carousel items
+var carouselItems = document.querySelectorAll('.carousel-item');
+
+// Set the first carousel item as active when the page loads
+carouselItems[0].classList.add('active');
+
+// Set the interval time (in milliseconds)
+var intervalTime = 6000; // 3 seconds
+
+// Set the current slide index
+var currentSlideIndex = 0;
+
+// Function to switch to the next slide
+function nextSlide() {
+  // Remove the active class from the current slide
+  carouselItems[currentSlideIndex].classList.remove('active');
+
+  // Increment the current slide index
+  currentSlideIndex++;
+
+  // If we've reached the end of the carousel, go back to the start
+  if (currentSlideIndex >= carouselItems.length) {
+    currentSlideIndex = 0;
+  }
+
+  // Add the active class to the new current slide
+  carouselItems[currentSlideIndex].classList.add('active');
+}
+
+// Set the interval to call the nextSlide function every intervalTime milliseconds
+setInterval(nextSlide, intervalTime);
